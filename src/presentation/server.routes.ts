@@ -1,11 +1,11 @@
 import {Router} from "express";
-import {SpotifyRoutes} from "./spotify/spotify.routes";
+import {AuthRoutes} from "./auth/auth.routes";
 
 export class ServerRoutes {
     static get routes(): Router {
         const router = Router();
 
-        router.use('/api/spotify', SpotifyRoutes.routes);
+        router.use('/api/auth', AuthRoutes.routes);
 
         return router;
     }
