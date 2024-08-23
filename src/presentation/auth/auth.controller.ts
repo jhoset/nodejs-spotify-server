@@ -4,7 +4,6 @@ import {envs} from "../../config";
 import * as querystring from "node:querystring";
 import {Constants} from "../../domain/helpers";
 import {AuthorizationCallbackResponse, UserAuthorizationRequestParams} from "../../domain/interfaces";
-import {AccessTokenResponse} from "../../domain/interfaces/spotify/access-token-response";
 
 export class AuthController {
     constructor(private readonly authService: AuthService) {

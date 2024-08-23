@@ -12,7 +12,7 @@ import {AccessTokenResponse} from "../interfaces/spotify/access-token-response";
 export class AuthService {
     public buildUserAuthRequestParams(): UserAuthorizationRequestParams {
         const state = generateRandomString();
-        const scopes: string = 'user-read-playback-state user-modify-playback-state user-read-currently-playing ' +
+        const scopes: string = 'user-read-recently-played user-read-playback-state user-modify-playback-state user-read-currently-playing ' +
             'app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private ' +
             'playlist-modify-public user-follow-modify user-follow-read user-library-modify user-library-read ' +
             'user-read-email user-read-private';
