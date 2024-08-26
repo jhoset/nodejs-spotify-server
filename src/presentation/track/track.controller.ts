@@ -1,26 +1,19 @@
 import {Request, Response} from "express";
 import axios from "axios"
 import jsdom from 'jsdom';
+import {TrackService} from "../../domain/services/track.service";
+import {handleError} from "../../domain/helpers";
 
 const {JSDOM} = jsdom;
 
 export class TrackController {
 
-    public getPreviewUrl = async (req: Request, res: Response) => {
-        console.log('ASDASD')
-        const {data} = await axios.get(`https://open.spotify.com/embed/track/${req.params['id']}`, {responseType: 'text'});
-        return res.send(this.extractPreviewUrl(data))
+    constructor(private readonly trackService: TrackService) {
     }
 
-    private extractPreviewUrl(html: string) {
-        const dom = new JSDOM(html);
-        const scriptElement = dom.window.document.getElementById('__NEXT_DATA__');
-
-        if (scriptElement) {
-            const jsonData = JSON.parse(scriptElement.textContent ?? '');
-            return jsonData?.props?.pageProps?.state?.data?.entity?.audioPreview?.url;
-        }
-
-        return null;
+    public getPreviewUrl = async (req: Request, res: Response) => {
+        this.trackService.getPreviewUrl(req.params['id'])
+            .then(result => res.status(200).send(result))
+            .catch(error => handleError(error, res));
     }
 }

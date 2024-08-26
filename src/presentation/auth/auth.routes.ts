@@ -10,6 +10,7 @@ export class AuthRoutes {
 
         router.get('/login', controller.login);
         router.get('/callback', controller.handleCallback);
+        router.get('/refresh_token', controller.refreshToken);
 
         return router;
 
