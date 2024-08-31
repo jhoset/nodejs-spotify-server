@@ -28,3 +28,13 @@ SPOTI_APP_SERVER_URL=http://localhost:3000
 SPOTI_APP_CLIENT_URL=http://localhost:4200
 ```
 5. Run the development server: ```npm run dev```
+
+## Dependencies:
+- Express: Web framework for Node.js.
+- axios: Promise-based HTTP client for the browser and node.js.
+- dotenv: Loads environment variables from a .env file.
+- cookie-parser: Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+- cors: Enable CORS with various options.
+- query-string: Parse and stringify URL query strings.
+- jsdom: A JavaScript implementation of various web standards, for server-side testing and scraping.
+- env-var: Lightweight runtime environment variable configuration.
