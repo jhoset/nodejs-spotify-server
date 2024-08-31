@@ -10,10 +10,8 @@ import axios from 'axios';
 export class AuthService {
     public buildUserAuthRequestParams(): UserAuthorizationRequestParams {
         const state = generateRandomString();
-        const scopes: string = 'user-read-recently-played user-read-playback-state user-modify-playback-state user-read-currently-playing ' +
-            'app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private ' +
-            'playlist-modify-public user-follow-modify user-follow-read user-library-modify user-library-read ' +
-            'user-read-email user-read-private';
+        const scopes: string =
+            'playlist-read-private';
 
         return {
             response_type: 'code',
