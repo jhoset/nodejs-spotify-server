@@ -35,7 +35,6 @@ export class AuthController {
 
     public refreshToken = async (req: Request, res: Response) => {
         const refresh_token: any = req.query['refresh_token'];
-        console.log('refresh_token', refresh_token);
         this.authService.negotiateNewAccessToken(refresh_token)
             .then(result => res.status(200).json(result))
             .catch(error => handleError(error, res));
